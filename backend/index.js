@@ -3,9 +3,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const normalizePort = require('./normalizeport');
-
-const PORT = normalizePort(process.env.PORT || 5000);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
