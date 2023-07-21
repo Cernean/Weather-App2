@@ -1,2 +1,0 @@
-GET http://localhost:5000/forcast/raleigh
-Content-type: application/json

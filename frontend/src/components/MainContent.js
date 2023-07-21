@@ -17,7 +17,7 @@ class MainContent extends React.Component {
     const time_now = forcast.time_now;
     let forcastDays = [];  
     
-    for (let i = 0; i < forcast.consolidated_weather.length; i++) {
+    for (let i = 0; i < forcast.consolidated_weather; i++) {
       const date_of_forcast = forcast.consolidated_weather[i].applicable_date;
       const max_temp = Math.round(forcast.consolidated_weather[i].max_temp);
       const min_temp = Math.round(forcast.consolidated_weather[i].min_temp);
@@ -38,7 +38,7 @@ class MainContent extends React.Component {
   renderForcast() {
     
     let components = [];
-    for(let i = 0; i < this.state.allForcasts.length; i++) {
+    for(let i = 0; i < this.state.allForcasts; i++) {
       let forcastProps = this.createForcast(this.state.allForcasts[i]); 
         
       components.push(this.createForcastComponent(forcastProps));      
@@ -67,7 +67,7 @@ class MainContent extends React.Component {
           
           this.forcasts.push({ city: locName, time_now , consolidated_weather: data.consolidated_weather});
           
-          if(this.forcasts.length > 3) {
+          if(this.forcasts > 3) {
             this.forcasts.shift();            
           }
 
