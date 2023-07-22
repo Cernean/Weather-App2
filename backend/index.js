@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const PORT = 5000;
+require('dotenv').config();
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,8 +20,10 @@ app.get('/', (req, res) => {
     console.log('Received GET request...');
 });
 
-app.listen(PORT, '127.0.0.1', () => {
+app.listen(process.env.PORT, () => {
 
-  console.log(`Server is listening on port ${PORT}...`);
+  console.log("Server is listening on port:", process.env.PORT);
 
 });
+
+module.exports = app;
